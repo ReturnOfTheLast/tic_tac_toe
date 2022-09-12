@@ -1,5 +1,4 @@
 field = [i for i in range(1, 10)]
-
 players = ['O', 'X']
 
 def print_field() -> None:
@@ -9,21 +8,19 @@ def print_field() -> None:
         print("|")
     print_horizontal_line()
 
-def print_horizontal_line() -> None:
-    print("-" * 13)
+def print_horizontal_line() -> None: print("-" * 13)
 
 def ask_for_move(player: int) -> None:
     global field
     while True:
-        answer = int(input(f"Spiller {players[player]} hvad er dit træk? "))
+        try: answer = int(input(f"Spiller {players[player]} hvad er dit træk? "))
+        except ValueError: print("Input skal være et tal"); continue
         if 9 >= answer >= 1 and isinstance(field[answer-1], int):
             field[answer-1] = players[player]
             break
-        else:
-            print("Det er ikke et lovligt træk")
+        else: print("Det er ikke et lovligt træk")
 
-def print_winner(winner: str):
-    print(f"Spiller {winner} har vundet")
+def print_winner(winner: str): print(f"Spiller {winner} har vundet")
 
 def check_if_won() -> bool:
     for i in range(3):
@@ -45,5 +42,4 @@ def main():
         ask_for_move(i%2)
         i += 1
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
