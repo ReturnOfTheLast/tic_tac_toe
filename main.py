@@ -20,7 +20,9 @@ def ask_for_move(player: int) -> None:
             break
         else: print("Det er ikke et lovligt træk")
 
-def print_winner(winner: str): print(f"Spiller {winner} har vundet")
+def print_winner(winner: str):
+    print_field()
+    print(f"Spiller {winner} har vundet")
 
 def check_if_won() -> bool:
     for i in range(3):
@@ -36,10 +38,10 @@ def check_if_won() -> bool:
     return False
 
 def main():
-    i = 0
-    while not check_if_won():
+    for i in range(9):
         print_field()
         ask_for_move(i%2)
-        i += 1
+        if check_if_won(): exit(1)
+    print("Uafgjort")
 
 if __name__ == "__main__": main()
