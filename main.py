@@ -40,7 +40,7 @@ def main(): # Main method
     for i in range(9): # Play for nine moves (number of total position in the board)
         print_board() # Print the board
         ask_for_move(i%2) # Ask for the players move (alternates as the 'i' goes from 0 to 8 since the modulo 2 will make it swing back and forth between 0 and 1)
-        if check_if_won(): exit(1) # Exit the program if a player has won
+        if check_if_won(): exit(0) # Exit the program if a player has won
     print("Game ends in a tie") # If all 9 moves go by and the game haven't been won, it will end in a tie
 
 if __name__ == "__main__": main() # Check that the file is run as the primary program and not imported
