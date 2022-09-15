@@ -1,7 +1,10 @@
+import os
+
 board = [i for i in range(1, 10)] # Make a board as a list with the numbers 1-9
 players = ['X', 'O'] # Players and their symbol
 
 def print_board() -> None: # Method to print the board
+    os.system("cls" if os.name == "nt" else "clear") # Clear the terminal before the board is printed
     for i in range(3): # Repeat three times one for each row
         print_horizontal_line() # Print the line at the top and in between the rows
         for c in board[i*3:i*3+3]: print(f"| {c} ", end="") # Print the value for each of the three columns in the row (with a divider to the left)
